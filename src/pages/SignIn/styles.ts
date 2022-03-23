@@ -41,19 +41,19 @@ export const Content = styled.div`
 
   > a {
     color: #ff9000;
-      display: block;
-      text-decoration: none;
-      transition: color 0.2s;
-      display: flex;
-      align-items: center;
+    display: block;
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
 
-      svg {
-        margin-right: 16px;
-      }
+    svg {
+      margin-right: 16px;
+    }
 
-      &:hover {
-        color: ${shade(0.2, '#ff9000')}
-      }
+    &:hover {
+      color: ${shade(0.2, '#ff9000')}
+    }
   }
 `;
 
