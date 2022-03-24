@@ -9,7 +9,8 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import { FormHandles } from '@unform/core';
 import getValidationErrors from '../../utils/getValidationErrors';
-import { useAuth } from '../../hooks/AuthContext';
+import { useAuth } from '../../hooks/auth';
+import { useToast } from '../../hooks/toast';
 
 interface SignInFormData {
   email: string;
@@ -20,6 +21,7 @@ const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   const { signIn } = useAuth();
+  const { addToast } = useToast();
 
   const handleSubmit = useCallback(async (data: SignInFormData) => {
     try {
@@ -35,15 +37,23 @@ const SignIn: React.FC = () => {
         abortEarly: false
       });
 
-      signIn({
+      await signIn({
         email: data.email,
         password: data.password
       });
     } catch (error) {
-      const errors = getValidationErrors(error);
-      formRef.current?.setErrors(errors);
+      if (error instanceof Yup.ValidationError) {
+        const errors = getValidationErrors(error);
+        formRef.current?.setErrors(errors);
+      }
+
+      addToast({
+        type: 'error',
+        title: 'Erro na auntenticação',
+        description: 'Ocorreu um erro ao fazer login, cheque as credenciais.'
+      });
     }
-  }, [signIn]);
+  }, [signIn, addToast]);
 
   return (
     <Container>

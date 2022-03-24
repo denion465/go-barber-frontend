@@ -18,6 +18,7 @@
   },
   "plugins": [
     "react",
+    "react-hooks",
     "@typescript-eslint"
   ],
   "rules": {
@@ -27,6 +28,7 @@
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "comma-dangle": ["error", "never"],
-    "no-console": ["warn", { "allow": ["warn", "error"] }]
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
