@@ -27,7 +27,8 @@ const Route: React.FC<RouteProps> = ({ isPrivate = false, component: Component, 
             state: { from: location }
           }} />
         );
-      }} />
+      }}
+    />
   );
 };
 

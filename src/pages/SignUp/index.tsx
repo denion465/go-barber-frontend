@@ -1,5 +1,6 @@
 import React, { useCallback, useRef } from 'react';
 import { FiMail, FiLock, FiUser, FiArrowLeft } from 'react-icons/fi';
+import { Link, useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
@@ -9,7 +10,6 @@ import logoImg from '../../assets/logo.svg';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import getValidationErrors from '../../utils/getValidationErrors';
-import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 import { useToast } from '../../hooks/toast';
 
