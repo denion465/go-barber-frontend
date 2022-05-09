@@ -45,7 +45,7 @@ const SignUp: React.FC = () => {
       history.push('/');
 
       addToast({
-        type: 'sucess',
+        type: 'success',
         title: 'Cadastro realizado!',
         description: 'Você já poide fazer seu logon no GoBarber!'
       });
